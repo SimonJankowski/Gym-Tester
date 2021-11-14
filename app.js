@@ -24,13 +24,13 @@ const asyncWraper = require("./helpers/asyncWraper");
 const ExpError = require("./helpers/ExpError");
 const { gymJoiSchema, reviewJoiSchema } = require("./joiSchemas.js");
 
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/gym-tester";
+
 const gymRoutes = require("./routes/gyms")
 const reviewRoutes = require("./routes/reviews")
 const gymbrosRoutes = require("./routes/gymbros")
 const { cloudinary, storage } = require("./cloudinary");
 //const dbUrl=process.env.DB_URL;
-
-const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/gym-tester";
 
 mongoose.connect(dbUrl);
 const db = mongoose.connection;
@@ -91,13 +91,6 @@ app.use((req, res, next) => {
     res.locals.error = req.flash("error");  //it has to be placed after using flash and before the route handlers
     next();
 })
-
-app.get("/fakegymbro", async (req, res) => {
-    const gymbro = new Gymbro({ email: "colttt@gmail.com", username: "colt" });
-    const newbro = await Gymbro.register(gymbro, "chicken");
-    res.send(newbro);
-})
-
 
 app.use("/gyms", gymRoutes)
 app.use("/gyms/:id/reviews", reviewRoutes)
