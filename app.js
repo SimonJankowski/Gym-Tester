@@ -39,8 +39,6 @@ db.once("open", () => {
     console.log("Database connected");
 });
 
-console.log(process.env.CLOUDINARY_CLOUD_NAME)
-
 app.set("view engine", "ejs");                                  // setting EJS to be view engine for entire app
 app.set("views", path.join(__dirname, "views"));                //setting foler with appviews for user
 

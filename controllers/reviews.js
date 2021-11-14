@@ -9,7 +9,6 @@ module.exports.createReviewRequest = async (req, res) => {
     gym.reviews.push(review);
     await review.save();
     await gym.save();
-    console.log(review.time);
     req.flash("success", `Thank you! Review added.`);
     res.redirect(`/gyms/${gym._id}`);
 }

@@ -40,7 +40,6 @@ module.exports.newGymRequest = async (req, res, next) => {
     gym.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
     gym.creator = req.user._id;
     gym.save();
-    console.log(gym)
     req.flash("success", "You successfully added new gym!");  //this is just addind this message to te request, not displaying
     res.redirect(`/gyms/${gym._id}`)
 }
@@ -65,7 +64,6 @@ module.exports.editGymRequest = async (req, res, next) => {
             await cloudinary.uploader.destroy(filename);
         }
         await gym.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages } } } }) ///I know!! what a query
-        console.log(gym);
     }
 
     req.flash("success", `You successfully updated ${gym.name}!`);
