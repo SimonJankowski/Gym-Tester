@@ -1,0 +1,40 @@
+@media only screen and (max-width: 576px) {
+#map{
+display: none;
+}
+}
+
+.indexPageImgDiv{
+display:flex;
+align-items: center;
+}
+
+.indexpageimg{
+max-height:200px;
+margin:auto;
+}
+
+.showPageImgDiv{
+max-height: 340px;
+}
+
+.showpageimg{
+margin:auto;
+}
+
+#map{
+width:100%;
+height:300px;
+}
+#cluster-map{
+width:100%;
+height:400px;
+}
+
+#logoImg{
+width:30px;
+height:30px;
+opacity: 0.9;
+border-radius: 4px;
+}
+

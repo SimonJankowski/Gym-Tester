@@ -1,0 +1,51 @@
+<%layout(`boilerplate`)%>
+    <% if(typeof cityName == 'undefined'){ %>
+        <div class="mb-3 shadow border-2" id="cluster-map"></div>
+        <% } %>
+            <% if (!gyms) {%>
+                <h1>Sorry, we couldn't find anything</h1>
+                <% } %>
+                    <div>
+                        <!-- <a href="/gyms/new"> add new gym</a> -->
+                    </div>
+                    <% if(gyms.length) {%>
+                        <ul>
+
+                            <% for(let gym of gyms){ %>
+                                <div class="card mb-3 shadow">
+                                    <div class="row">
+                                        <div class="col-md-4 indexPageImgDiv">
+                                            <% if(gym.images.length){ %>
+                                                <img src="<%=gym.images[0].url%>" alt="" class="indexpageimg img-fluid">
+                                                <% }else{ %>
+                                                    <img src="https://image.shutterstock.com/image-vector/gym-interior-graphic-black-white-260nw-1563070174.jpg"
+                                                        alt="" class="indexpageimg img-fluid">
+                                                    <% } %>
+                                        </div>
+                                        <div class=" col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <%=gym.name%>
+                                                </h5>
+                                                <p class="card-text">
+                                                    <%=gym.description.substring(0,200)%>...
+                                                </p>
+                                                <p class="card-text"><small class="text-muted">
+                                                        <%=gym.location%>
+                                                    </small></p>
+                                                <a href="/gyms/<%=gym._id%>" class="btn btn-primary">View <%=gym.name%>
+                                                        </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </ul>
+                        <% } else{%>
+                            <h2>Sorry, we couldn't find anything</h2>
+                            <%} %>
+
+                                <script>
+                                    const gyms = { features:<%-JSON.stringify(gyms) %>}
+                                </script>
+                                <script src="/clusterMap.js"></script>

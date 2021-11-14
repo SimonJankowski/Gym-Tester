@@ -1,0 +1,91 @@
+<%layout("boilerplate")%>
+    <div class="row">
+        <h1 class="text-center">Edit Gym</h1>
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form action="/gyms/<%=gym._id%>?_method=PUT" method="POST" novalidate class="needs-validation"
+                        enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="form-label" for="name">Gym name:</label>
+                            <input class="form-control" type="text" id="name" name="gym[name]" value="<%=gym.name%>"
+                                required>
+                            <div class="invalid-feedback">
+                                Please provide a valid name.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="location">Location:</label>
+                            <input class="form-control" type="text" id="location" name="gym[location]"
+                                value="<%=gym.location%>" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid location.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="type">Gym type:</label>
+                            <select class="form-select" type="select" id="type" name="gym[type]" value="<%=gym.type%>"
+                                required>
+                                <option selected disabled value="">Choose...</option>
+                                <option value="Commercial Gym" <%=gym.type==="Commercial Gym" ? "selected" : "" %>
+                                    >Commercial Gym</option>
+                                <option value="Old school Gym" <%=gym.type==="Old school Gym" ? "selected" : "" %>>Old
+                                    school Gym</option>
+                                <option value="Posh fitness center" <%=gym.type==="Posh fitness center" ? "selected"
+                                    : "" %>>Posh fitness center</option>
+                                <option value="Multisport club" <%=gym.type==="Multisport club" ? "selected" : "" %>
+                                    >Multisport club</option>
+                                <option value="Outdoor Gym" <%=gym.type==="Outdoor Gym" ? "selected" : "" %>>Outdoor Gym
+                                </option>
+                                <option value="Crossfit Box" <%=gym.type==="Crossfit Box" ? "selected" : "" %>>Crossfit
+                                    Box</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select type of gym.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="images" class="form-label">Add image</label>
+                            <input class="form-control" type="file" id="images" name="image" multiple>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="price">Price:</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="price-label">$</span>
+                                <input type="text" class="form-control" placeholder="0" aria-label="price"
+                                    value="<%=gym.price%>" aria-describedby="price-label" id="price" name="gym[price]"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid name.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="description">Description:</label>
+                            <textarea class="form-control" type="text" id="description" name="gym[description]"
+                                required><%=gym.description%>"
+                    </textarea>
+                            <div class="invalid-feedback">
+                                Please provide a valid name.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <% gym.images.forEach(function(img,i){ %>
+                                <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="">
+                                <div class="form-check-inline">
+                                    <input type="checkbox" name="deleteImages[]" value="<%=img.filename%>"
+                                        id="image-<%=i%>">
+                                </div>
+                                <label for="image-<%=i%>">Delete image</label>
+                                <br>
+                                <% }) %>
+                        </div>
+                        <div>
+                            <button class="btn btn-info">Update Gym</button>
+                        </div>
+                        <a href="/gyms/<%=gym._id%>">back to the gym</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

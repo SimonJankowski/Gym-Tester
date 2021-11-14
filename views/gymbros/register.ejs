@@ -1,0 +1,40 @@
+<%layout(`boilerplate`)%>
+
+    <div class="container justify-content-center align-items-center mt-1">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+                <div class="card shadow">
+                    <img src="/loginPic.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">Register</h5>
+                        <form action="/register" class="needs-validation" novalidate method="POST">
+                            <div class="mb-3">
+                                <label class="form-label" for="username">username:</label>
+                                <input class="form-control" type="text" id="username" name="Gymbro[username]" autofocus
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid username.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="email">email:</label>
+                                <input class="form-control" type="email" id="email" name="Gymbro[email]" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="password">password:</label>
+                                <input class="form-control" type="password" id="password" name="Gymbro[password]" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid password.
+                                </div>
+                            </div>
+                            <button class="btn btn-success col-12">Register</button>
+                        </form>
+                        <p>Dont have an account? <a href="/register">Register</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

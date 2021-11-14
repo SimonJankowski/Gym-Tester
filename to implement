@@ -1,0 +1,26 @@
+1. solved (preselected gym type on edit page)
+
+3. solved Work on Joi schema to prevent sending requests with invalid gym gymTypes
+
+4. solved Adding something like call for action when there is no review, "be the first one to review this gym!"
+
+5. solved Add time of review added and show it.
+
+8. solved Search button for cities
+
+7. solved normaliza images size on the show page
+node-nax3t.c9users.io
+
+9. solved calculate avarage rating on the show page
+
+10.  solved Add media query so on the phone map disapear or jump on the bottom
+
+11. solved say sorry we couldn't find amnything on the index page after search
+
+12. failed Make staralize display half stars
+
+13. optimaze cluster in cluster map so they join together quite easy
+
+2. solved Override bootstrap styles in: Show, new, edit, index, error
+
+6. validate size limit of images and number of them
