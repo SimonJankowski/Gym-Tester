@@ -127,6 +127,7 @@ app.use((err, req, res, next) => {
 //     res.send(gb)
 // })
 
-app.listen(3000, () => {
-    console.log("GymTester avaible on port 3000");
+const port = process.env.PORT ||3000;
+app.listen(port, () => {
+    console.log(`GymTester avaible on port ${port}`);
 })
