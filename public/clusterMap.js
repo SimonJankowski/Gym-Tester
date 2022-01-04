@@ -1,5 +1,5 @@
 
-	mapboxgl.accessToken = 'pk.eyJ1Ijoic2ltb25qYXkiLCJhIjoiY2t1czZvMGJjMWpoNjJwcXJtNDJqZmp1biJ9.9MMga3s7vQYPW9v67AEATg';
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2ltb25qYXkiLCJhIjoiY2t1czZvMGJjMWpoNjJwcXJtNDJqZmp1biJ9.9MMga3s7vQYPW9v67AEATg';
 const map = new mapboxgl.Map({
 container: 'cluster-map',
 style: 'mapbox://styles/mapbox/dark-v10',
@@ -14,8 +14,6 @@ map.on('load', () => {
 // add the point_count property to your source data.
 map.addSource('gyms', {
 type: 'geojson',
-// Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
-// from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
 data: gyms,
 cluster: true,
 clusterMaxZoom: 14, // Max zoom to cluster points on

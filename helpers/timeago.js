@@ -46,6 +46,8 @@ function timeAgo(dateParam) {
   const minutes = Math.round(seconds / 60);
   const hours = Math.round(minutes / 60);
   const days = Math.round(hours / 24);
+  const weeks = Math.round(days / 7);
+  const months = Math.round(weeks / 4);
   const isToday = today.toDateString() === date.toDateString();
   const isYesterday = yesterday.toDateString() === date.toDateString();
   const isThisYear = today.getFullYear() === date.getFullYear();
@@ -63,6 +65,12 @@ function timeAgo(dateParam) {
     return `${hours} hours ago`;
   } else if (isYesterday) {
     return getFormattedDate(date, 'Yesterday'); // Yesterday at 10:20
+  } else if (days < 14) {
+    return `${days} days ago`;
+  } else if (days < 60) {
+    return `${weeks} weeks ago`;
+  } else if (weeks < 8) {
+    return `${months} months ago`;
   } else if (isThisYear) {
     return getFormattedDate(date, false, true); // 10. January at 10:20
   }
