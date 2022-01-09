@@ -112,11 +112,6 @@ app.use((err, req, res, next) => {
     // res.send("oh boy")
 })
 
-// app.get("/makeGym", async (req, res) => {
-//     const gb = new Gym({ name: "MuscleWorks", location: "Hammersmith" });
-//     await gb.save();
-//     res.send(gb)
-// })
 
 const port = process.env.PORT ||3000;
 app.listen(port, () => {
